@@ -1,30 +1,24 @@
 import Card from './Card';
-const Cards = ({ characters }) => {
-  const example = {
-    id: 1,
-    name: 'Rick Sanchez',
-    status: 'Alive',
-    species: 'Human',
-    gender: 'Male',
-    origin: {
-      name: 'Earth (C-137)',
-      url: 'https://rickandmortyapi.com/api/location/1',
-    },
-    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-  };
+const Cards = ({ characters, onClose }) => {
   return (
     <div>
-      <Card
-        key={example.id}
-        name={example.name}
-        species={example.species}
-        gender={example.gender}
-        image={example.image}
-        status={example.status}
-        origin={origin.name}
-        onClose={() => window.alert('Emulamos que se cierre la card!')}
-      />
-      ;
+      {characters.map(
+        ({ id, name, species, gender, image, status, origin }) => {
+          return (
+            <Card
+              id={id}
+              key={id}
+              name={name}
+              species={species}
+              gender={gender}
+              image={image}
+              status={status}
+              origin={origin.name}
+              onClose={onClose}
+            />
+          );
+        }
+      )}
     </div>
   );
 };
