@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 const Card = ({
   id,
   name,
@@ -17,7 +18,9 @@ const Card = ({
       >
         X
       </button>
-      <h2>Name: {name}</h2>
+      <Link to={`/detail/${id}`}>
+        <h3 className="card-name">{name}</h3>
+      </Link>
       <h2>Status: {status}</h2>
       <h2>Species: {species}</h2>
       <h2>Gender: {gender}</h2>
